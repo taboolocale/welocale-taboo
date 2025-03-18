@@ -1,116 +1,100 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Taboo Game</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            background-color: #221b33;
+            color: #221b33;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .word-box, .forbidden-box {
+            width: 80%;
+            max-width: 400px;
+            background-color: #fdf6e3;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            border: 5px solid #e87bb7;
+        }
+        .word-box {
+            cursor: pointer;
+        }
+        .forbidden-box {
+            font-size: 24px;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .timer {
+            font-size: 24px;
+            margin-top: 10px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Online Taboo Game&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: "Comic Sans MS", cursive, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #221b33;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #221b33;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.word-box, .forbidden-box {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 80%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 400px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fdf6e3;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 32px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 5px solid #e87bb7;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.word-box {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.forbidden-box {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.timer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="word-box" onclick="changeWord()"&gt;Click to Start&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="forbidden-box" id="forbidden-words"&gt;Forbidden words will appear here&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="timer" id="timer"&gt;90&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let words = [</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Flight", forbidden: ["Plane", "Airport", "Travel"] },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Computer", forbidden: ["Laptop", "Keyboard", "Screen"] },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Dog", forbidden: ["Bark", "Pet", "Animal"] },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Football", forbidden: ["Soccer", "Goal", "Kick"] },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Phone", forbidden: ["Call", "Number", "Talk"] },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Guitar", forbidden: ["Strings", "Music", "Instrument"] },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Television", forbidden: ["Screen", "Remote", "Show"] },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Car", forbidden: ["Drive", "Wheel", "Engine"] },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Book", forbidden: ["Read", "Pages", "Library"] },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ word: "Table", forbidden: ["Wood", "Furniture", "Legs"] }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>];<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>let timer;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let timeLeft = 90;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let timerRunning = false;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function changeWord() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let randomIndex = Math.floor(Math.random() * words.length);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.querySelector(".word-box").innerText = words[randomIndex].word;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("forbidden-words").innerHTML = words[randomIndex].forbidden.map(word =&gt; `&lt;div&gt;${word}&lt;/div&gt;`).join("");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!timerRunning) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>startTimer();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function startTimer() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>timerRunning = true;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>timeLeft = 90;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("timer").innerText = timeLeft;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>timer = setInterval(function () {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>timeLeft--;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("timer").innerText = timeLeft;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (timeLeft &lt;= 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>clearInterval(timer);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>alert("Time's up! Select a new word.");</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>timerRunning = false;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, 1000);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <div class="container">
+        <div class="word-box" onclick="changeWord()">Click to Start</div>
+        <div class="forbidden-box" id="forbidden-words">Forbidden words will appear here</div>
+        <div class="timer" id="timer">90</div>
+    </div>
+
+    <script>
+        let words = [
+            { word: "Flight", forbidden: ["Plane", "Airport", "Travel"] },
+            { word: "Computer", forbidden: ["Laptop", "Keyboard", "Screen"] },
+            { word: "Dog", forbidden: ["Bark", "Pet", "Animal"] },
+            { word: "Football", forbidden: ["Soccer", "Goal", "Kick"] },
+            { word: "Phone", forbidden: ["Call", "Number", "Talk"] },
+            { word: "Guitar", forbidden: ["Strings", "Music", "Instrument"] },
+            { word: "Television", forbidden: ["Screen", "Remote", "Show"] },
+            { word: "Car", forbidden: ["Drive", "Wheel", "Engine"] },
+            { word: "Book", forbidden: ["Read", "Pages", "Library"] },
+            { word: "Table", forbidden: ["Wood", "Furniture", "Legs"] }
+        ]; 
+        let timer;
+        let timeLeft = 90;
+        let timerRunning = false;
+
+        function changeWord() {
+            let randomIndex = Math.floor(Math.random() * words.length);
+            document.querySelector(".word-box").innerText = words[randomIndex].word;
+            document.getElementById("forbidden-words").innerHTML = words[randomIndex].forbidden.map(word => `<div>${word}</div>`).join("");
+            if (!timerRunning) {
+                startTimer();
+            }
+        }
+
+        function startTimer() {
+            timerRunning = true;
+            timeLeft = 90;
+            document.getElementById("timer").innerText = timeLeft;
+            timer = setInterval(function () {
+                timeLeft--;
+                document.getElementById("timer").innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    alert("Time's up! Select a new word.");
+                    timerRunning = false;
+                }
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
