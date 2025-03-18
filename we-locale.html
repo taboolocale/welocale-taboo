@@ -221,17 +221,21 @@
             { word: "Festival", "forbidden": ["Celebrate", "Music", "People"] }
         ]; 
 
+        let remainingWords = [...words]; // Kullanılmamış kelimeleri saklayan dizi
         let timer;
         let timeLeft = 60;
         let timerRunning = false;
 
-        function getRandomIndex() {
-            return Math.floor(Math.random() * words.length);
+        function getRandomWord() {
+            if (remainingWords.length === 0) {
+                remainingWords = [...words]; // Tüm kelimeler kullanıldıysa listeyi sıfırla
+            }
+            let randomIndex = Math.floor(Math.random() * remainingWords.length);
+            return remainingWords.splice(randomIndex, 1)[0]; // Seçilen kelimeyi listeden çıkar
         }
 
         function changeWord() {
-            let randomIndex = getRandomIndex();
-            let selectedWord = words[randomIndex];
+            let selectedWord = getRandomWord();
 
             document.querySelector(".word-box").innerText = selectedWord.word;
             document.getElementById("forbidden-words").innerHTML = selectedWord.forbidden.map(word => `<div>${word}</div>`).join("");
@@ -263,6 +267,7 @@
             document.querySelector(".word-box").innerText = "Click to Start";
             document.getElementById("forbidden-words").innerHTML = "Forbidden words will appear here";
             document.getElementById("timer").innerText = "60";
+            remainingWords = [...words]; // Kullanılan kelimeleri sıfırla
         }
     </script>
 </body>
