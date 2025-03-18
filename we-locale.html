@@ -220,30 +220,51 @@
             { "word": "Hospital", "forbidden": ["Doctor", "Nurse", "Sick"] },
             { "word": "Festival", "forbidden": ["Celebrate", "Music", "People"] }
         ]; 
+
         let timer;
         let timeLeft = 60;
         let timerRunning = false;
+        let usedIndices = new Set(); // Kullanılan kelime indexlerini takip etmek için
+
+        function getRandomIndex() {
+            if (usedIndices.size >= words.length) {
+                usedIndices.clear(); // Tüm kelimeler kullanıldıysa sıfırla
+            }
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * words.length);
+            } while (usedIndices.has(randomIndex)); // Tekrar eden kelimeyi engelle
+
+            usedIndices.add(randomIndex);
+            return randomIndex;
+        }
 
         function changeWord() {
-            let randomIndex = Math.floor(Math.random() * words.length);
-            document.querySelector(".word-box").innerText = words[randomIndex].word;
-            document.getElementById("forbidden-words").innerHTML = words[randomIndex].forbidden.map(word => `<div>${word}</div>`).join("");
+            let randomIndex = getRandomIndex();
+            let selectedWord = words[randomIndex];
+
+            document.querySelector(".word-box").innerText = selectedWord.word;
+            document.getElementById("forbidden-words").innerHTML = selectedWord.forbidden.map(word => `<div>${word}</div>`).join("");
+
             if (!timerRunning) {
                 startTimer();
             }
         }
 
         function startTimer() {
+            clearInterval(timer);
             timerRunning = true;
             timeLeft = 60;
             document.getElementById("timer").innerText = timeLeft;
+
             timer = setInterval(function () {
                 timeLeft--;
                 document.getElementById("timer").innerText = timeLeft;
+
                 if (timeLeft <= 0) {
                     clearInterval(timer);
-                    alert("Time's up! Select a new word.");
                     timerRunning = false;
+                    changeWord(); // Süre bitince yeni kelimeyi otomatik getir
                 }
             }, 1000);
         }
