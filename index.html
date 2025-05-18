@@ -91,7 +91,6 @@
             { word: "Road", forbidden: ["Street", "Drive", "Car"] },
             { word: "Key", forbidden: ["Lock", "Door", "Open"] },
             { word: "Baby", forbidden: ["Small", "Cry", "New"] },
-            { word: "Teacher", forbidden: ["Class", "Learn", "Board"] },
             { word: "Fire", forbidden: ["Hot", "Burn", "Flame"] },
             { word: "Cold", forbidden: ["Winter", "Freezing", "Snow"] },
             { word: "Library", forbidden: ["Books", "Read", "Quiet"] },
@@ -100,10 +99,8 @@
             { word: "Lunch", forbidden: ["Eat", "Midday", "Meal"] },
             { word: "Letter", forbidden: ["Mail", "Stamp", "Write"] },
             { word: "Post Office", forbidden: ["Mail", "Send", "Stamp"] },
-            { word: "Train", forbidden: ["Tracks", "Transport", "Ticket"] },
             { word: "Shirt", forbidden: ["Wear", "Clothes", "Top"] },
             { word: "Holiday", forbidden: ["Relax", "Trip", "Beach"] },
-            { word: "Airport", forbidden: ["Plane", "Ticket", "Passport"] },
             { word: "Forest", forbidden: ["Trees", "Nature", "Animals"] },
             { word: "Winter", forbidden: ["Cold", "Snow", "Season"] },
             { word: "Spring", forbidden: ["Flowers", "Season", "Warm"] },
@@ -136,7 +133,6 @@
             { word: "Shop", forbidden: ["Buy", "Store", "Money"] },
             { word: "Money", forbidden: ["Bank", "Pay", "Cash"] },
             { word: "Bank", forbidden: ["Money", "Account", "Card"] },
-            { word: "Restaurant", forbidden: ["Eat", "Food", "Waiter"] },
             { word: "Cup", forbidden: ["Drink", "Tea", "Coffee"] },
             { word: "Table", forbidden: ["Furniture", "Eat", "Legs"] },
             { word: "Pencil", forbidden: ["Write", "Eraser", "Sharp"] },
@@ -411,8 +407,9 @@
             document.querySelector(".word-box").innerText = "Click to Start";
             document.getElementById("forbidden-words").innerHTML = "Forbidden words will appear here";
             document.getElementById("timer").innerText = "60";
-            remainingWords = [...words]; // Kullanılan kelimeleri sıfırla
-        }
+            // Do not reset remainingWords here to avoid repetition
+}
+
     </script>
 </body>
 </html>
