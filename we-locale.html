@@ -221,6 +221,14 @@
             { word: "Festival", "forbidden": ["Celebrate", "Music", "People"] }
         ]; 
 
+        // Duplicate kelimeleri kaldırmak için:
+        let seen = new Set();
+        words = words.filter(entry => {
+            if (seen.has(entry.word)) return false;
+            seen.add(entry.word);
+            return true;
+        });
+
         let remainingWords = [...words]; // Kullanılmamış kelimeleri saklayan dizi
         let timer;
         let timeLeft = 60;
