@@ -18,6 +18,13 @@
             justify-content: center;
             height: 100vh;
         }
+        .title {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 48px;
+            color: #6d8a62;
+            margin-bottom: 20px;
+        }
+
         .word-box, .forbidden-box {
             width: 80%;
             max-width: 400px;
@@ -50,10 +57,12 @@
 </head>
 <body>
     <div class="container">
+        <h1 class="title">WeLocale</h1>
         <div class="word-box" onclick="changeWord()">Click to Start</div>
         <div class="forbidden-box" id="forbidden-words">Forbidden words will appear here</div>
         <div class="timer" id="timer">60</div>
     </div>
+
 
     <script>
         let words = [
